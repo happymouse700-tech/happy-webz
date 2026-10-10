@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#03130d">
+
+<title>HAPPY WEBZ | Digital Solutions</title>
+
+<style>
+:root {
+    --green: #00f078;
+    --green-dark: #00b957;
+    --background: #03130d;
+    --card: #0a2118;
+    --white: #f5fff9;
+    --muted: #b3c9bd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(3, 19, 13, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 240, 120, 0.2);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 17px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.logo-icon {
+    color: var(--green);
+    margin-right: 7px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid #24523c;
+    color: white;
+    font-size: 25px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid transparent;
+    transition: transform 0.25s, box-shadow 0.25s,
+                background 0.25s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 24px rgba(0, 240, 120, 0.22);
+}
+
+.btn-primary {
+    background: linear-gradient(120deg, #00b957, #00f078);
+    color: #001b0c;
+}
+
+.btn-outline {
+    border-color: var(--green);
+    color: var(--white);
+    background: rgba(0, 240, 120, 0.04);
+}
+
+/* HOMEPAGE */
+
+.hero {
+    min-height: 620px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 75% 45%,
+        rgba(0, 180, 82, 0.13), transparent 50%),
+        linear-gradient(110deg, #03130d, #041b11 70%, #03130d);
+}
+
+#particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-inner {
+    width: 100%;
+    max-width: 1200px;
+    padding: 65px 24px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 25px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+    color: var(--green);
+    background: rgba(0, 240, 120, 0.09);
+    border: 1px solid rgba(0, 240, 120, 0.3);
+    border-radius: 50px;
+    padding: 7px 15px;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 23px;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero-description {
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 35px;
+    color: #c8dfd1;
+    font-size: 12px;
+}
+
+.trust-row span::before {
+    content: "✓";
+    color: var(--green);
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+/* CSS 3D GLOBE */
+
+.globe-stage {
+    position: relative;
+    min-height: 440px;
+    display: grid;
+    place-items: center;
+    perspective: 900px;
+}
+
+.globe-glow {
+    position: absolute;
+    width: min(80%, 390px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(0, 240, 120, 0.15);
+    filter: blur(55px);
+}
+
+.globe {
+    position: relative;
+    width: min(76vw, 360px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    border: 2px solid rgba(0, 240, 120, 0.75);
+    background:
+        radial-gradient(circle at 32% 25%,
+        rgba(0, 255, 130, 0.22), transparent 28%),
+        radial-gradient(circle at 50% 50%,
+        #073923, #02150d 72%);
+    box-shadow:
+        inset -25px -15px 55px rgba(0, 0, 0, 0.9),
+        inset 10px 5px 35px rgba(0, 240, 120, 0.2),
+        0 0 28px rgba(0, 240, 120, 0.3),
+        0 0 85px rgba(0, 240, 120, 0.12);
+    animation: globe-float 6s ease-in-out infinite;
+}
+
+/* Longitude and latitude lines */
+
+.globe-grid {
+    position: absolute;
+    inset: -5%;
+    border-radius: 50%;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 37px,
+            rgba(0, 240, 120, 0.45) 38px,
+            transparent 39px
+        );
+}
+
+.globe-grid::before,
+.globe-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0, 240, 120, 0.45);
+    border-radius: 50%;
+}
+
+.globe-grid::before {
+    transform: scaleX(0.35);
+}
+
+.globe-grid::after {
+    transform: scaleX(0.68);
+}
+
+/* Moving network lines */
+
+.globe-network {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 47px,
+            rgba(0, 240, 120, 0.25) 48px,
+            transparent 49px
+        );
+    animation: network-spin 18s linear infinite;
+}
+
+/* Decorative glowing dots */
+
+.globe-dots {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 25% 27%, #b2ffd4 0 2px, transparent 3px),
+        radial-gradient(circle at 67% 22%, #00f078 0 2px, transparent 4px),
+        radial-gradient(circle at 72% 46%, #b2ffd4 0 2px, transparent 4px),
+        radial-gradient(circle at 34% 61%, #00f078 0 2px, transparent 4px),
+        radial-gradient(circle at 56% 75%, #b2ffd4 0 2px, transparent 4px),
+        radial-gradient(circle at 19% 70%, #00f078 0 2px, transparent 4px),
+        radial-gradient(circle at 47% 38%, #00f078 0 2px, transparent 4px),
+        radial-gradient(circle at 82% 65%, #b2ffd4 0 2px, transparent 4px);
+    filter: drop-shadow(0 0 5px var(--green));
+    animation: dots-pulse 3s ease-in-out infinite alternate;
+}
+
+/* Orbit around the globe */
+
+.orbit {
+    position: absolute;
+    width: 115%;
+    height: 35%;
+    border: 1px solid rgba(0, 240, 120, 0.75);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+    box-shadow: 0 0 10px rgba(0, 240, 120, 0.15);
+}
+
+.orbit-two {
+    width: 125%;
+    height: 48%;
+    transform: rotate(48deg);
+    border-color: rgba(0, 240, 120, 0.3);
+}
+
+.orbit-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 15px var(--green);
+    top: 18%;
+    left: 20%;
+}
+
+@keyframes globe-float {
+    0%, 100% { transform: translateY(0) rotateY(-8deg); }
+    50% { transform: translateY(-12px) rotateY(8deg); }
+}
+
+@keyframes network-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes dots-pulse {
+    from { opacity: 0.55; }
+    to { opacity: 1; }
+}
+
+/* SERVICES */
+
+.services {
+    padding: 85px 24px;
+    background: #f4fbf6;
+    color: #10271a;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.section-heading small {
+    color: #008d45;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.2;
+    margin: 8px 0;
+}
+
+.section-heading h2 span {
+    color: #008d45;
+}
+
+.section-heading p {
+    color: #617366;
+}
+
+.service-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    padding: 27px 23px;
+    border-radius: 18px;
+    background: white;
+    border: 1px solid #dcece1;
+    box-shadow: 0 8px 25px rgba(15, 70, 38, 0.04);
+    transition: transform 0.3s, box-shadow 0.3s,
+                border-color 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: #00c965;
+    box-shadow: 0 15px 35px rgba(0, 140, 65, 0.13);
+}
+
+.service-icon {
+    width: 49px;
+    height: 49px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: white;
+    font-size: 23px;
+    background: linear-gradient(135deg, #008c43, #00d96b);
+    margin-bottom: 17px;
+}
+
+.service-card h3 {
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #64766a;
+    margin-bottom: 22px;
+    flex-grow: 1;
+}
+
+.service-card .btn {
+    align-self: flex-start;
+    font-size: 13px;
+    padding: 10px 17px;
+}
+
+/* ABOUT */
+
+.about {
+    padding: 80px 24px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 0%,
+        rgba(0, 240, 120, 0.1), transparent 55%),
+        #04160e;
+}
+
+.about-content {
+    max-width: 760px;
+    margin: auto;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.about h2 span {
+    color: var(--green);
+}
+
+.about p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* CONTACT */
+
+.contact {
+    padding: 75px 24px;
+    background: #f4fbf6;
+    color: #10271a;
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.contact p {
+    color: #617366;
+    margin-bottom: 25px;
+}
+
+.contact-email {
+    display: inline-block;
+    color: #008d45;
+    font-weight: bold;
+    margin-bottom: 25px;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    background: #020d08;
+    color: #91aa9b;
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--green);
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero-inner {
+        gap: 8px;
+    }
+
+    .globe-stage {
+        min-height: 350px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* MOBILE PHONES */
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 14px 18px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #04160e;
+        border-bottom: 1px solid #17442c;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 5px;
+        font-size: 15px;
+    }
+
+    .nav-links .btn {
+        margin-top: 10px;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 60px 22px 45px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 11vw, 55px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .globe-stage {
+        min-height: 340px;
+        margin-top: 10px;
+    }
+
+    .globe {
+        width: min(72vw, 290px);
+    }
+
+    .trust-row {
+        gap: 12px;
+    }
+
+    .services {
+        padding: 65px 20px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 24px;
+    }
+
+    .about, .contact {
+        padding: 60px 22px;
+    }
+
+    .about h2, .contact h2 {
+        font-size: 30px;
+    }
+}
+
+/* ACCESSIBILITY: REDUCE ANIMATION */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">◎</span> HAPPY <span>WEBZ</span>
+        </a>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a class="btn btn-primary"
+               href="#services">Get Started</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <div class="hero-inner">
+
+        <div class="hero-content">
+            <div class="badge">
+                YOUR IDEAS. OUR EXPERTISE.
+            </div>
+
+            <h1>
+                We Build Digital Experiences That
+                <span>Move You Forward.</span>
+            </h1>
+
+            <p class="hero-description">
+                From stunning websites to powerful software,
+                HAPPY WEBZ helps bring your digital ideas to life.
+                Let's build something amazing together.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">
+                    Explore Our Services ↗
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Us
+                </a>
+            </div>
+
+            <div class="trust-row">
+                <span>Creative Solutions</span>
+                <span>Quality Work</span>
+                <span>Modern Technology</span>
+            </div>
+        </div>
+
+        <div class="globe-stage" aria-label="Animated digital globe">
+            <div class="globe-glow"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit"></div>
+
+            <div class="globe">
+                <div class="globe-grid"></div>
+                <div class="globe-network"></div>
+                <div class="globe-dots"></div>
+            </div>
+
+            <div class="orbit-dot"></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="section-heading">
+        <small>What We Do</small>
+        <h2>Our <span>Services</span></h2>
+        <p>
+            Digital services designed to turn your ideas
+            into practical, professional solutions.
+        </p>
+    </div>
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <div class="service-icon">⌘</div>
+            <h3>Website Development</h3>
+            <p>Modern, responsive websites for businesses,
+               brands and personal projects.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=Website%20Development%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">▣</div>
+            <h3>App Development</h3>
+            <p>Mobile application ideas transformed into
+               useful digital experiences.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=App%20Development%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">✎</div>
+            <h3>Graphic Design</h3>
+            <p>Creative visual designs for branding,
+               marketing and social media.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=Graphic%20Design%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">&lt;/&gt;</div>
+            <h3>Software Development</h3>
+            <p>Software solutions tailored to specific
+               needs and project goals.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=Software%20Development%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">◇</div>
+            <h3>Website Fixing</h3>
+            <p>Help troubleshooting layout issues,
+               broken links and website bugs.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=Website%20Fixing%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">◈</div>
+            <h3>UI/UX Design</h3>
+            <p>Clear, intuitive layouts that make
+               digital products easier to use.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=UI%2FUX%20Design%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">⬡</div>
+            <h3>Cybersecurity</h3>
+            <p>Security-focused guidance to help
+               protect websites and digital systems.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=Cybersecurity%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">⌕</div>
+            <h3>SEO Services</h3>
+            <p>Improve website structure and help
+               search engines understand your content.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=SEO%20Services%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">✧</div>
+            <h3>Programming Lessons</h3>
+            <p>Learn programming fundamentals and
+               build your coding confidence.</p>
+            <a class="btn btn-primary"
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=munachim261@gmail.com&su=Programming%20Lessons%20Request"
+               target="_blank" rel="noopener noreferrer">
+                Request Service ↗
+            </a>
+        </article>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="about-content">
+        
+      <section class="about" id="about">
+    <div class="about-container">    <div class="about-heading">
+        <span class="about-label">ABOUT HAPPY WEBZ</span>
+
+        <h2>Ideas Into <span>Digital Reality</span></h2>
+
+        <p class="about-intro">
+            We transform creative ideas into powerful digital experiences
+            that help businesses grow, connect, and stand out online.
+        </p>
+    </div>
+
+    <div class="about-main">
+        <div class="about-story">
+            <h3>Building Your Digital Future</h3>
+
+            <p>
+                At Happy Webz, we believe every great idea deserves
+                a strong digital presence. We create modern, engaging,
+                and user-friendly websites designed to bring ideas to life.
+            </p>
+
+            <p>
+                Our focus is on combining creativity, technology, and
+                thoughtful design to deliver digital experiences that
+                make a lasting impression.
+            </p>
+
+            <a href="#contact" class="btn">Let's Work Together</a>
+        </div>
+
+        <div class="about-visual">
+            <div class="about-orbit"></div>
+            <div class="about-orbit about-orbit-two"></div>
+
+            <div class="about-globe">
+                <div class="about-globe-lines"></div>
+                <div class="about-globe-glow"></div>
+                <div class="about-globe-symbol">&lt;/&gt;</div>
+            </div>
+
+            <div class="about-floating-tag tag-top">
+                <span>✦</span> Creative Design
+            </div>
+
+            <div class="about-floating-tag tag-bottom">
+                <span>✓</span> Digital Solutions
+            </div>
+        </div>
+    </div>
+
+    <div class="about-purpose">
+        <div class="purpose-card">
+            <div class="purpose-icon">◎</div>
+            <h3>Our Mission</h3>
+            <p>
+                To help individuals and businesses establish a powerful
+                online presence through creative, accessible, and
+                effective digital solutions.
+            </p>
+        </div>
+
+        <div class="purpose-card">
+            <div class="purpose-icon">◇</div>
+            <h3>Our Vision</h3>
+            <p>
+                To become a trusted digital partner known for innovation,
+                quality, and meaningful digital experiences.
+            </p>
+        </div>
+    </div>
+
+    <div class="values-heading">
+        <span class="about-label">WHAT DRIVES US</span>
+        <h2>Our Core <span>Values</span></h2>
+        <p>The principles behind everything we create.</p>
+    </div>
+
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="value-number">01</div>
+            <h3>Creativity</h3>
+            <p>We turn fresh ideas into engaging digital experiences.</p>
+        </div>
+
+        <div class="value-card">
+            <div class="value-number">02</div>
+            <h3>Quality</h3>
+            <p>We aim for polished designs and reliable solutions.</p>
+        </div>
+
+        <div class="value-card">
+            <div class="value-number">03</div>
+            <h3>Innovation</h3>
+            <p>We explore better ways to solve digital challenges.</p>
+        </div>
+
+        <div class="value-card">
+            <div class="value-number">04</div>
+            <h3>Customer Focus</h3>
+            <p>We put people's needs at the heart of our work.</p>
+        </div>
+    </div>
+
+    <div class="about-cta">
+        <h2>Ready to Build Something <span>Amazing?</span></h2>
+
+        <p>
+            Let's turn your next idea into a digital experience
+            worth sharing.
+        </p>
+
+        <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+
+</div>
+
+</section>      
